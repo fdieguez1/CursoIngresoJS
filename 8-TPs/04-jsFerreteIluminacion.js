@@ -8,7 +8,69 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
 
  */
-function CalcularPrecio () 
-{
- 	
+function CalcularPrecio() {
+    var cantidadLamparas;
+    var argentinaLuz;
+    var felipeLamparas;
+    var descuentoAplicable;
+    var comboMarca;
+    var calculo;
+    var descuentoCalculado;
+    var precioLamparita
+
+    cantidadLamparas = txtIdCantidad.value;
+    var cantidadLamparasParsed = parseInt(cantidadLamparas);
+    argentinaLuz = "ArgentinaLuz";
+    felipeLamparas = "FelipeLamparas";
+    precioLamparita = 35;
+    comboMarca = Marca.value;
+
+    if (cantidadLamparasParsed > 5) {
+        descuentoAplicable = 50;
+    }
+    else {
+        if (cantidadLamparasParsed > 4) {
+            if (comboMarca != argentinaLuz) {
+                descuentoAplicable = 30;
+            }
+            else {
+                descuentoAplicable = 40;
+            }
+        }
+        if (cantidadLamparasParsed > 3) {
+            if (comboMarca == argentinaLuz || comboMarca == felipeLamparas) {
+                descuentoAplicable = 25;
+            }
+            else {
+                descuentoAplicable = 20;
+            }
+        }
+        if (cantidadLamparas > 2) {
+            if (comboMarca == argentinaLuz) {
+                descuentoAplicable = 15;
+            }
+            else {
+                if (comboMarca == felipeLamparas) {
+                    descuentoAplicable = 10;
+                }
+                else {
+                    descuentoAplicable = 5;
+                }
+            }
+        }
+    }
+
+    totalLamparasSinDescuento = cantidadLamparasParsed * precioLamparita;
+    descuentoCalculado = totalLamparasSinDescuento * descuentoAplicable / 100;
+    calculo = totalLamparasSinDescuento - descuentoCalculado;
+
+    if (calculo > 119) {
+        var impuesto;
+        impuesto = calculo * 10 / 100;
+        txtIdprecioDescuento.value = calculo + impuesto;
+        alert("Usted pago " + impuesto + " de IIBB.”, siendo " + impuesto + " el impuesto que se pagó.")
+    }
+    else {
+        txtIdprecioDescuento.value = calculo;
+    }
 }

@@ -2,7 +2,10 @@ function mostrar()
 {
 	//tomo el mes
 	var mesDelAño =txtIdMes.value;
-	alert(mesDelAño);
+	switch(mesDelAño){
+		case "Enero":
+			alert("Que comienzes bien el año");
+	}
 
 
 

@@ -11,7 +11,15 @@ function mostrarAumento()
 
 	numberOneValue = document.getElementById("txtIdImporte").value;
 	
-	numberOneParsed = parseInt(numberOneValue);
+	numberOneParsed = parseFloat(numberOneValue);
+
+	//var descuento = numberOneParsed * 25 / 100;
+	//var proceso = numberOneParsed - descuento;
+	
+	//var descuento = numberOneParsed * 0.25;
+	//var proceso = numberOneParsed - descuento;
+
+	//var proceso = numberOneParsed - (numberOneParsed * 0.25);
 
 	var proceso = numberOneParsed * 0.75;
 	document.getElementById("txtIdResultado").value = proceso;

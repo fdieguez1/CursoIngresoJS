@@ -5,6 +5,14 @@ function mostrar()
 {
 	var contador;
 	contador=0; 
-	alert('iteración while');
+	var numero;
+	numero = 10;
+	while (contador < 10){
+		document.write(numero +  "<br />")
+		numero--;
+		contador++;
+	}
+
+	
 
 }//FIN DE LA FUNCIÓN
